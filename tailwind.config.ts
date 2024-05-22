@@ -2,11 +2,14 @@ import { type Config } from "tailwindcss";
 import { flavorEntries } from "https://deno.land/x/catppuccin@v1.2.0/mod.ts";
 
 const colors = Object.fromEntries(
-  flavorEntries.flatMap(([_, flavor]) =>
-    flavor.colorEntries.map((
-      [colorName, { hex }],
-    ) => [`${flavor.name.toLocaleLowerCase()}-${colorName}`, hex])
-  ),
+  flavorEntries.map((
+    [flavorName, { colorEntries }],
+  ) => [
+    flavorName,
+    Object.fromEntries(
+      colorEntries.map(([colorName, { hex }]) => [colorName, hex]),
+    ),
+  ]),
 );
 console.log(colors);
 
