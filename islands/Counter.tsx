@@ -6,11 +6,19 @@ interface CounterProps {
   count: Signal<number>;
 }
 
-flavorEntries.map(([_, flavor]) => {
-  flavor.colorEntries.map(([colorName, { hex }]) => {
-    console.log(colorName, hex);
-  });
-});
+console.log(flavorEntries.map(([_, flavor]) => {
+  flavor.colorEntries.flatMap((
+    [colorName, { hex }],
+  ) => [[flavor.name + colorName], hex]);
+}));
+
+console.log(
+  Object.fromEntries(flavorEntries.flatMap(([_, flavor]) =>
+    flavor.colorEntries.map((
+      [colorName, { hex }],
+    ) => [`${flavor.name}-${colorName}`, hex])
+  )),
+);
 
 export default function Counter(props: CounterProps) {
   return (
