@@ -6,7 +6,7 @@ interface GeneratorProps {
 
 export default function Counter(props: GeneratorProps) {
   return (
-    <div class="flex px-4 py-6 text-latte-text dark:text-mocha-text bg-latte-mantle border-2 border-latte-mauve rounded dark:bg-mocha-mantle dark:border-mocha-mauve">
+    <div class="flex px-4 py-6 gap-2 text-latte-text dark:text-mocha-text bg-latte-mantle border-2 border-latte-mauve rounded items-center justify-center dark:bg-mocha-mantle dark:border-mocha-mauve">
       <p class="text-3xl">
         {props.sessionId}
       </p>
