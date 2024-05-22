@@ -11,7 +11,6 @@ const colors = Object.fromEntries(
     ),
   ]),
 );
-console.log(colors);
 
 export default {
   content: [
