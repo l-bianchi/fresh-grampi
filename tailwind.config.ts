@@ -5,7 +5,7 @@ const colors = Object.fromEntries(
   flavorEntries.flatMap(([_, flavor]) =>
     flavor.colorEntries.map((
       [colorName, { hex }],
-    ) => [`${flavor.name}-${colorName}`, hex])
+    ) => [`${flavor.name.toLocaleLowerCase()}-${colorName}`, hex])
   ),
 );
 console.log(colors);
