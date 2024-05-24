@@ -1,4 +1,5 @@
 import Generator from "../islands/Generator.tsx";
+import { Button } from "../components/Button.tsx";
 
 export default function Home() {
   const sessionId = "123-123-123";
@@ -18,7 +19,10 @@ export default function Home() {
         <p class="my-4 text-latte-text dark:text-mocha-text">
           An amazing internet experience, create your canvas of stories.
         </p>
-        <Generator sessionId={sessionId} />
+        <div class="flex gap-4 items-center justify-between">
+          <Generator sessionId={sessionId} />
+          <Button title="enter" href={sessionId} />
+        </div>
       </div>
     </div>
   );
