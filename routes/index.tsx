@@ -21,7 +21,11 @@ export default function Home() {
         </p>
         <div class="flex gap-4 items-center justify-between">
           <Generator sessionId={sessionId} />
-          <Button title="enter" href={sessionId} />
+          <Button
+            onClick={() => window.location.href = `/${sessionId}`}
+          >
+            Enter
+          </Button>
         </div>
       </div>
     </div>
