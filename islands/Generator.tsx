@@ -19,12 +19,10 @@ export default function Counter({ sessionId }: GeneratorProps) {
   };
 
   return (
-    <div class="flex size-full gap-4">
-      <div class="px-4 py-6 text-latte-text dark:text-mocha-text bg-latte-mantle border-2 border-latte-mauve rounded items-center justify-center dark:bg-mocha-mantle dark:border-mocha-mauve">
-        <p class="text-3xl">
-          {sessionId}
-        </p>
-      </div>
+    <div class="flex gap-4 items-center justify-center">
+      <p class="px-4 py-6 text-3xl text-latte-text dark:text-mocha-text bg-latte-mantle border-2 border-latte-mauve rounded dark:bg-mocha-mantle dark:border-mocha-mauve">
+        {sessionId}
+      </p>
       <Button onClick={copyToClipboard}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
