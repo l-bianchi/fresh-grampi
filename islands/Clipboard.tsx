@@ -34,7 +34,7 @@ export default function Clipboard() {
   };
 
   return (
-    <div class="w-full max-w-sm gap-8">
+    <div class="flex w-full max-w-sm gap-8">
       <div class="flex items-center">
         <button
           class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-red dark:bg-mocha-red border-2 hover:bg-latte-maroon dark:hover:bg-mocha-maroon rounded-s border-latte-red dark:border-mocha-red hover:border-latte-maroon dark:hover:border-mocha-maroon focus:outline-none"
