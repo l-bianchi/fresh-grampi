@@ -10,7 +10,7 @@ export default function Editor() {
         <img
           class="h-auto max-h-full max-w-full rounded aspect-square animate-pulse"
           src={imageUrl}
-          alt="image description"
+          alt="generation preview"
         />
       </div>
       <div class="h-fit bg-mocha-base rounded shadow-xl p-4">
