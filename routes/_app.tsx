@@ -1,4 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
+
 export default function App({ Component }: PageProps) {
   return (
     <html>
@@ -8,7 +9,7 @@ export default function App({ Component }: PageProps) {
         <title>fresh-grampi</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body className="bg-latte-base dark:bg-mocha-base">
+      <body className="bg-mocha-base">
         <Component />
       </body>
     </html>

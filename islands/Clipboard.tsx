@@ -90,7 +90,7 @@ export default function Clipboard() {
           </span>
         </button>
       </div>
-      <Button onClick={() => window.location.href = `/${sessionId}`}>
+      <Button onClick={() => (window.location.href = `/${sessionId}`)}>
         Join
       </Button>
     </div>

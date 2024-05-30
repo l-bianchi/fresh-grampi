@@ -1,14 +1,18 @@
 import { PageProps } from "$fresh/server.ts";
+import Editor from "../islands/Editor.tsx"
+import Conversations from "../islands/Conversations.tsx"
 
 export default function Greet({ params }: PageProps) {
   return (
-    <div class="size-full p-10 bg-latte-mantle dark:bg-mocha-mantle border-2 border-latte-mauve dark:border-mocha-mauve rounded items-center justify-center">
-      <h1 class="text-4xl font-semibold text-latte-text dark:text-mocha-text">
-        You are in the room
-        <span class="font-bold text-latte-mauve dark:text-mocha-mauve underline ml-4">
-          {params.sessionId}
-        </span>
-      </h1>
+    <div class="w-screen h-screen p-4">
+      <div class="flex w-full h-full gap-2">
+        <div class="w-3/4">
+          <Editor />
+        </div>
+        <div class="w-1/4 bg-latte-crust dark:bg-mocha-crust rounded shadow">
+          <Conversations />
+        </div>
+      </div>
     </div>
   );
 }

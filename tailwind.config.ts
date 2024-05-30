@@ -20,5 +20,5 @@ export default {
     extend: {
       colors,
     },
-  },
+  }
 } satisfies Config;
