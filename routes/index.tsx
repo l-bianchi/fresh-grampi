@@ -3,7 +3,7 @@ import Clipboard from "../islands/Clipboard.tsx";
 export default function Home() {
   return (
     <div class="w-screen h-screen p-4">
-      <div class="flex flex-col h-full bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md items-center justify-center">
+      <div class="flex flex-col h-full bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md items-center justify-evenly">
         <img
           class="my-6"
           src="/logo.svg"

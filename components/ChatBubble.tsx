@@ -9,7 +9,7 @@ export function ChatBubble() {
           11:46
         </span>
         <img
-          class="w-8 h-8 rounded-full ml-auto"
+          class="flex w-8 h-8 rounded-full justify-self-end"
           src="https://placehold.co/128x128"
           alt="Jese image"
         />
