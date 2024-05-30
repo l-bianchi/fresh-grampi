@@ -11,7 +11,9 @@ export default function Clipboard() {
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(sessionId);
+      await navigator.clipboard.writeText(
+        `https://fresh-grampi.deno.dev/${sessionId}`,
+      );
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // Reset the "copied" state after 2 seconds
     } catch (err) {
