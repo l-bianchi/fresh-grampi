@@ -1,23 +1,45 @@
 import { useState } from "preact/hooks";
 
+let sessionId = crypto.randomUUID().slice(0, 17);
+
 export default function Clipboard() {
   const [_, setCopied] = useState(false);
-  const sessionId = crypto.randomUUID().slice(0, 17);
+
+  const generateSessionId = () => {
+    sessionId = crypto.randomUUID().slice(0, 17);
+  };
 
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(sessionId);
       setCopied(true);
+      showSuccess();
       setTimeout(() => setCopied(false), 2000); // Reset the "copied" state after 2 seconds
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
   };
 
+  const showSuccess = () => {
+    const defaultIcon = document.getElementById("default-icon");
+    const successIcon = document.getElementById("success-icon");
+
+    if (defaultIcon) {
+      defaultIcon.classList.add("hidden");
+    }
+
+    if (successIcon) {
+      successIcon.classList.remove("hidden");
+    }
+  };
+
   return (
     <div class="w-full max-w-sm">
       <div class="flex items-center">
-        <button class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-red dark:bg-mocha-red border-2 hover:bg-latte-maroon dark:hover:bg-mocha-maroon rounded-s border-latte-red dark:border-mocha-red hover:border-latte-maroon dark:hover:border-mocha-maroon focus:outline-none">
+        <button
+          class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-red dark:bg-mocha-red border-2 hover:bg-latte-maroon dark:hover:bg-mocha-maroon rounded-s border-latte-red dark:border-mocha-red hover:border-latte-maroon dark:hover:border-mocha-maroon focus:outline-none"
+          onClick={generateSessionId}
+        >
           Generate
         </button>
         <div class="relative w-full">
