@@ -8,7 +8,7 @@ export default function Editor() {
     <div class="flex flex-col h-full w-full gap-2">
       <div class="flex h-full bg-mocha-base rounded shadow-xl items-center justify-center">
         <img
-          class="h-auto max-w-xl rounded shadow-xl aspect-square animate-pulse"
+          class="h-auto max-h-full max-w-full rounded aspect-square animate-pulse"
           src={imageUrl}
           alt="image description"
         />
