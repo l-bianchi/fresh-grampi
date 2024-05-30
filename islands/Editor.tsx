@@ -1,14 +1,15 @@
-import { ImagePreview } from "../components/ImagePreview.tsx";
+import { state } from "../stores/editorStore.ts";
 import { Prompt } from "../components/Prompt.tsx";
 
 export default function Editor() {
+  const { imageUrl } = state();
+
   return (
     <div class="flex flex-col h-full w-full gap-2">
       <div class="flex h-full bg-mocha-base rounded shadow-xl items-center justify-center">
-        <ImagePreview />
         <img
-          class="h-auto max-w-xl rounded-lg shadow-xl dark:shadow-gray-800"
-          src="/logo.svg"
+          class="h-auto max-w-xl rounded shadow-xl aspect-square animate-pulse"
+          src={imageUrl}
           alt="image description"
         />
       </div>
