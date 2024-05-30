@@ -42,7 +42,7 @@ export default function Clipboard() {
         <button
           data-tooltip-target="tooltip-url-shortener"
           data-copy-to-clipboard-target="url-shortener"
-          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-mocha-base bg-mocha-surface0 border border-mocha-overlay0 rounded-e hover:bg-mocha-surface1"
+          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-mocha-mauve bg-mocha-surface0 border border-mocha-overlay0 rounded-e hover:bg-mocha-surface1"
           type="button"
           onClick={copyToClipboard}
         >

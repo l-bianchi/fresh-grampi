@@ -9,7 +9,7 @@ export default function Room({ params }: PageProps) {
         <div class="w-3/4">
           <Editor />
         </div>
-        <div class="w-1/4 bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md">
+        <div class="w-1/4 bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md overflow-hidden">
           <Conversations />
         </div>
       </div>
