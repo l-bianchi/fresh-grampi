@@ -5,8 +5,8 @@ export default function Editor() {
   const { imageUrl } = state();
 
   return (
-    <div class="flex flex-col gap-2">
-      <div class="flex bg-mocha-base rounded shadow-xl items-center justify-center">
+    <div class="flex flex-col h-full gap-2">
+      <div class="grow bg-mocha-base rounded shadow-xl items-center justify-center">
         <img
           class="h-auto max-h-full max-w-full rounded aspect-square animate-pulse"
           src={imageUrl}
