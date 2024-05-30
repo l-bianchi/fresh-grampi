@@ -7,7 +7,7 @@ export default function Editor() {
       <div class="flex h-4/5 bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md items-center justify-center">
         <ImagePreview />
       </div>
-      <div class="h-1/5 bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md">
+      <div class="h-1/5 bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md p-4">
         <Prompt />
       </div>
     </div>

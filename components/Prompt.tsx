@@ -2,10 +2,10 @@ import { Button } from "./Button.tsx";
 
 export function Prompt() {
   return (
-    <div class="bg-mocha-surace0 border-2 border-mocha-overlay0 rounded">
+    <div class="flex w-full h-full bg-mocha-surace0">
       <input
         type="text"
-        class="w-full p-4 text-sm font-medium text-mocha-text bg-transparent"
+        class="w-full p-4 text-sm font-medium text-mocha-text bg-transparent focus:outline-none"
         placeholder="..."
       />
       <Button>
@@ -13,7 +13,7 @@ export function Prompt() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke="currentColor"
           class="size-6"
         >
