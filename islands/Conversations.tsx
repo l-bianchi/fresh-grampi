@@ -1,8 +1,15 @@
 import { ChatBubble } from "../components/ChatBubble.tsx";
 
-export default function Conversations() {
+interface ConversationsProps {
+  sessionId: string;
+}
+
+export default function Conversations({ sessionId }: ConversationsProps) {
   return (
     <div class="flex flex-col h-full p-4 gap-2 items-center overflow-y-auto">
+      <div class="sticky top">
+        <p>{sessionId}</p>
+      </div>
       <ChatBubble />
       <ChatBubble />
       <ChatBubble />

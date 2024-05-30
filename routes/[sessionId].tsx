@@ -10,7 +10,7 @@ export default function Room({ params }: PageProps) {
           <Editor />
         </div>
         <div class="w-1/4 bg-mocha-base rounded shadow-xl overflow-hidden">
-          <Conversations />
+          <Conversations sessionId={params.sessionId} />
         </div>
       </div>
     </div>
