@@ -2,7 +2,7 @@ import Clipboard from "../islands/Clipboard.tsx";
 
 export default function Home() {
   return (
-    <div class="w-full h-full p-4">
+    <div class="grow p-4">
       <div class="flex flex-col h-full p-4 bg-mocha-base rounded shadow-xl items-center gap-4">
         <img
           class="my-6"
