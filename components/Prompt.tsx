@@ -2,28 +2,27 @@ import { Button } from "./Button.tsx";
 
 export function Prompt() {
   return (
-    <div class="w-full p-5 flex gap-2">
+    <div class="bg-mocha-surace0 border-2 border-mocha-overlay0 rounded">
       <input
-        class="w-full p-2 bg-transparent border rounded-xl"
         type="text"
-        placeholder={"Write here your prompt"}
+        class="w-full p-4 text-sm font-medium text-mocha-text bg-transparent"
+        placeholder="..."
       />
       <Button>
-        <div class="w-[20px] h-[20px]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-            class="w-full h-full"
-          >
-            <path
-              fill="currentColor"
-              d="M4 18.5v-13L19.423 12zM5 17l11.85-5L5 7v3.885L9.846 12L5 13.116zm0 0V7z"
-            />
-          </svg>
-        </div>
-        Send
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+          />
+        </svg>
       </Button>
     </div>
   );

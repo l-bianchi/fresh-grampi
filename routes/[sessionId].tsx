@@ -9,7 +9,7 @@ export default function Greet({ params }: PageProps) {
         <div class="w-3/4">
           <Editor />
         </div>
-        <div class="w-1/4 bg-mocha-base border-2 border-mocha-surface0 rounded shadow">
+        <div class="w-1/4 bg-mocha-base border-2 border-mocha-surface0 rounded shadow-md">
           <Conversations />
         </div>
       </div>
