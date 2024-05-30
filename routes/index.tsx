@@ -6,7 +6,7 @@ export default function Home() {
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
         <img
           class="my-6"
-          src="/grampi.png"
+          src="/logo.svg"
           width="128"
           height="128"
           alt="the Fresh logo: a sliced lemon dripping with juice"
