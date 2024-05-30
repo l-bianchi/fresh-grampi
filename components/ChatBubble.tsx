@@ -1,6 +1,6 @@
 export function ChatBubble() {
   return (
-    <div class="flex flex-col w-full max-w-[320px] leading-relaxed p-4 border-mocha-lavender bg-mocha-surface0 rounded shadow">
+    <div class="flex flex-col w-full leading-relaxed p-4 border-mocha-lavender bg-mocha-surface0 rounded shadow">
       <div class="flex items-center space-x-2">
         <span class="text-sm font-semibold text-mocha-text">
           Bonnie Green
@@ -9,7 +9,7 @@ export function ChatBubble() {
           11:46
         </span>
         <img
-          class="w-8 h-8 rounded-full justify-self-end"
+          class="w-8 h-8 rounded-full ml-auto"
           src="https://placehold.co/128x128"
           alt="Jese image"
         />
