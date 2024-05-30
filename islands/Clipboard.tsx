@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import { Button } from "../components/Button.tsx";
 
 export default function Clipboard() {
   const [sessionId, setSessionId] = useState(crypto.randomUUID().slice(0, 17));
@@ -89,6 +90,9 @@ export default function Clipboard() {
           </span>
         </button>
       </div>
+      <Button onClick={() => window.location.href = `/${sessionId}`}>
+        Join
+      </Button>
     </div>
   );
 }
