@@ -1,6 +1,6 @@
 import { PageProps } from "$fresh/server.ts";
-import Editor from "../islands/Editor.tsx"
-import Conversations from "../islands/Conversations.tsx"
+import Editor from "../islands/Editor.tsx";
+import Conversations from "../islands/Conversations.tsx";
 
 export default function Greet({ params }: PageProps) {
   return (
@@ -9,7 +9,7 @@ export default function Greet({ params }: PageProps) {
         <div class="w-3/4">
           <Editor />
         </div>
-        <div class="w-1/4 bg-latte-crust dark:bg-mocha-crust rounded shadow">
+        <div class="w-1/4 bg-mocha-base border-2 border-mocha-surface0 rounded shadow">
           <Conversations />
         </div>
       </div>

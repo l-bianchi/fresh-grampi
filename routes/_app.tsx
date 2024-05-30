@@ -9,7 +9,7 @@ export default function App({ Component }: PageProps) {
         <title>fresh-grampi</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body className="bg-mocha-base">
+      <body className="bg-mocha-mauve">
         <Component />
       </body>
     </html>
