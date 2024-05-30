@@ -23,7 +23,7 @@ export default function Clipboard() {
     <div class="flex w-full max-w-fit gap-8">
       <div class="flex items-center">
         <button
-          class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-mocha-base bg-mocha-mauve hover:bg-mocha-lavender rounded-s focus:ring-2 focus:ring-mocha-mauve focus:ring-offset-4 focus:ring-offset-mocha-base transition-colors"
+          class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-mocha-base bg-mocha-mauve hover:bg-mocha-lavender border border-mocha-mauve hover:border-mocha-lavender rounded-s focus:ring-2 focus:ring-mocha-mauve focus:ring-offset-4 focus:ring-offset-mocha-base transition-colors"
           onClick={generateSessionId}
         >
           Generate
