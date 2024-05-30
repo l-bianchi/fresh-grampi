@@ -6,11 +6,11 @@ interface ConversationsProps {
 
 export default function Conversations({ sessionId }: ConversationsProps) {
   return (
-    <div class="flex flex-col">
+    <div class="flex flex-col h-full">
       <div class="w-full p-4 bg-mocha-crust backdrop-blur-sm">
         <p class="text-sm font-semibold text-mocha-mauve">{sessionId}</p>
       </div>
-      <div class="flex flex-col p-4 gap-2 items-center overflow-y-auto">
+      <div class="flex flex-col h-full p-4 gap-2 items-center overflow-y-auto">
         <ChatBubble />
         <ChatBubble />
         <ChatBubble />
