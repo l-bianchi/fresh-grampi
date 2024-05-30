@@ -1,12 +1,11 @@
 import { useState } from "preact/hooks";
 
-let sessionId = crypto.randomUUID().slice(0, 17);
-
 export default function Clipboard() {
+  const [sessionId, setSessionId] = useState(crypto.randomUUID().slice(0, 17));
   const [_, setCopied] = useState(false);
 
   const generateSessionId = () => {
-    sessionId = crypto.randomUUID().slice(0, 17);
+    setSessionId(crypto.randomUUID().slice(0, 17));
   };
 
   const copyToClipboard = async () => {
