@@ -3,7 +3,7 @@ import { Button } from "../components/Button.tsx";
 
 export default function Clipboard() {
   const [sessionId, setSessionId] = useState(crypto.randomUUID().slice(0, 17));
-  const [_, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const generateSessionId = () => {
     setSessionId(crypto.randomUUID().slice(0, 17));
@@ -13,23 +13,9 @@ export default function Clipboard() {
     try {
       await navigator.clipboard.writeText(sessionId);
       setCopied(true);
-      showSuccess();
       setTimeout(() => setCopied(false), 2000); // Reset the "copied" state after 2 seconds
     } catch (err) {
       console.error("Failed to copy: ", err);
-    }
-  };
-
-  const showSuccess = () => {
-    const defaultIcon = document.getElementById("default-icon");
-    const successIcon = document.getElementById("success-icon");
-
-    if (defaultIcon) {
-      defaultIcon.classList.add("hidden");
-    }
-
-    if (successIcon) {
-      successIcon.classList.remove("hidden");
     }
   };
 
@@ -37,7 +23,7 @@ export default function Clipboard() {
     <div class="flex w-full max-w-fit gap-8">
       <div class="flex items-center">
         <button
-          class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-red dark:bg-mocha-red border-2 hover:bg-latte-maroon dark:hover:bg-mocha-maroon rounded-s border-latte-red dark:border-mocha-red hover:border-latte-maroon dark:hover:border-mocha-maroon focus:outline-none"
+          class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-mocha-base bg-mocha-mauve hover:bg-mocha-lavender rounded-s focus:ring-2 focus:ring-mocha-mauve focus:ring-offset-4 focus:ring-offset-mocha-base transition-colors"
           onClick={generateSessionId}
         >
           Generate
@@ -47,7 +33,7 @@ export default function Clipboard() {
             id="url-shortener"
             type="text"
             aria-describedby="helper-text-explanation"
-            class="bg-latte-surface0 dark:bg-mocha-surface0 border border-e-0 border-latte-overlay0 dark:border-mocha-overlay0 text-latte-subtext0 dark:text-mocha-subtext0 text-sm border-s-0 block w-full p-2.5"
+            class="bg-mocha-surface0 border border-e-0 border-mocha-overlay0 text-mocha-subtext0 text-sm border-s-0 block w-full p-2.5"
             value={sessionId}
             readonly
             disabled
@@ -56,11 +42,11 @@ export default function Clipboard() {
         <button
           data-tooltip-target="tooltip-url-shortener"
           data-copy-to-clipboard-target="url-shortener"
-          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-surface0 dark:bg-mocha-surface0 border border-latte-overlay0 dark:border-mocha-overlay0 rounded-e hover:bg-latte-surface1 dark:hover:bg-mocha-surface1 focus:outline-none"
+          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-mocha-base bg-mocha-surface0 border border-mocha-overlay0 rounded-e hover:bg-mocha-surface1"
           type="button"
           onClick={copyToClipboard}
         >
-          <span id="default-icon">
+          <span class={`${copied ? "hidden" : ""}`}>
             <svg
               class="w-4 h-4"
               aria-hidden="true"
@@ -71,7 +57,7 @@ export default function Clipboard() {
               <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
             </svg>
           </span>
-          <span id="success-icon" class="hidden inline-flex items-center">
+          <span class={`${!copied ? "hidden" : ""}`}>
             <svg
               class="w-4 h-4"
               aria-hidden="true"

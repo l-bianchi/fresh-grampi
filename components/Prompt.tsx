@@ -2,7 +2,7 @@ import { Button } from "./Button.tsx";
 
 export function Prompt() {
   return (
-    <div class="flex w-full h-full bg-mocha-surace0">
+    <div class="flex w-full h-full">
       <input
         type="text"
         class="w-full p-4 text-sm font-medium text-mocha-text bg-transparent focus:outline-none"
