@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer class="h-fit bg-mocha-base rounded-t shadow mx-4">
+    <footer class="bg-mocha-base rounded-t shadow mx-4">
       <div class="w-full mx-auto p-4 flex items-center justify-between">
         <span class="text-sm text-mocha-subtext0">
           © 2023{" "}
