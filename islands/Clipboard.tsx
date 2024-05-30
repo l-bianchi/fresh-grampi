@@ -1,20 +1,26 @@
+import { useState } from "preact/hooks";
+
 interface GeneratorProps {
   sessionId: string;
 }
 
 export default function Counter({ sessionId }: GeneratorProps) {
+  const [_, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(sessionId);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset the "copied" state after 2 seconds
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
   return (
     <div class="w-full max-w-sm">
-      <div class="mb-2 flex justify-between items-center">
-        <label
-          for="url-shortener"
-          class="text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Shorten URL:
-        </label>
-      </div>
       <div class="flex items-center">
-        <button class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-700 dark:bg-blue-600 border hover:bg-blue-800 dark:hover:bg-blue-700 rounded-s-lg border-blue-700 dark:border-blue-600 hover:border-blue-700 dark:hover:border-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+        <button class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-mauve dark:bg-mocha-mauve border-2 hover:bg-latte-lavender dark:hover:bg-mocha-lavender rounded-s border-latte-mauve dark:border-mocha-mauve hover:border-latte-lavender dark:hover:border-mocha-lavender focus:ring-4 focus:outline-none focus:ring-latte-blue dark:focus:ring-mocha-blue">
           Generate
         </button>
         <div class="relative w-full">
@@ -22,8 +28,8 @@ export default function Counter({ sessionId }: GeneratorProps) {
             id="url-shortener"
             type="text"
             aria-describedby="helper-text-explanation"
-            class="bg-gray-50 border border-e-0 border-gray-300 text-gray-500 dark:text-gray-400 text-sm border-s-0 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            value="https://bit.ly/3U2SXcF"
+            class="bg-latte-surface0 dark:bg-mocha-surface0 border border-e-0 border-latte-crust dark:border-mocha-crust text-latte-subtext0 dark:text-mocha-subtext0 text-sm border-s-0 focus:ring-latte-blue focus:border-latte-blue block w-full p-2.5 dark:focus:ring-mocha-blue dark:focus:border-mocha-blue"
+            value={sessionId}
             readonly
             disabled
           />
@@ -31,8 +37,9 @@ export default function Counter({ sessionId }: GeneratorProps) {
         <button
           data-tooltip-target="tooltip-url-shortener"
           data-copy-to-clipboard-target="url-shortener"
-          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-gray-500 dark:text-gray-400 hover:text-gray-900 bg-gray-100 border border-gray-300 rounded-e-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:hover:text-white dark:border-gray-600"
+          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-surface0 dark:bg-mocha-surface0 border border-latte-crust dark:border-mocha-crust rounded-e hover:bg-latte-surface1 dark:hover:bg-mocha-surface1 focus:ring-4 focus:outline-none focus:ring-latte-mantle dark:focus:ring-mocha-mantle"
           type="button"
+          onClick={copyToClipboard}
         >
           <span id="default-icon">
             <svg
@@ -63,22 +70,7 @@ export default function Counter({ sessionId }: GeneratorProps) {
             </svg>
           </span>
         </button>
-        <div
-          id="tooltip-url-shortener"
-          role="tooltip"
-          class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-        >
-          <span id="default-tooltip-message">Copy link</span>
-          <span id="success-tooltip-message" class="hidden">Copied!</span>
-          <div class="tooltip-arrow" data-popper-arrow></div>
-        </div>
       </div>
-      <p
-        id="helper-text-explanation"
-        class="mt-2 text-sm text-gray-500 dark:text-gray-400"
-      >
-        Make sure that your URL is valid
-      </p>
     </div>
   );
 }

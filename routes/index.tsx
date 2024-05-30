@@ -2,7 +2,7 @@ import Generator from "../islands/Generator.tsx";
 import Clipboard from "../islands/Clipboard.tsx";
 
 export default function Home() {
-  const sessionId = "123-123-123";
+  const sessionId = crypto.randomUUID();
   return (
     <div class="px-4 py-8 mx-auto bg-latte-crust dark:bg-mocha-crust">
       <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
