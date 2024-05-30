@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    --sb-track-color: transparent;
+    --sb-track-color: #1e1e2e;
     --sb-thumb-color: #cba6f7;
     --sb-size: 12px;
 }
@@ -20,7 +20,7 @@ body {
 ::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 8px;
-    border: 4px solid transparent;
+    border: 4px solid #1e1e2e;
 }
 
 @supports not selector(::-webkit-scrollbar) {
