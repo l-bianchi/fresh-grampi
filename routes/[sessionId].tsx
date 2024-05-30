@@ -4,7 +4,7 @@ import Conversations from "../islands/Conversations.tsx";
 
 export default function Room({ params }: PageProps) {
   return (
-    <div class="w-screen h-screen p-4">
+    <div class="w-full h-full p-4">
       <div class="flex w-full h-full gap-2">
         <div class="w-3/4">
           <Editor />
