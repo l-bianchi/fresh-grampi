@@ -5,7 +5,7 @@ export function ImagePreview() {
 
   return (
     <div
-      class={`bg-center bg-cover bg-no-repeat max-h-full h-2/3 max-w-full aspect-square rounded animate-pulse`}
+      class={`bg-center bg-cover bg-no-repeat max-h-full h-2/3 max-w-full aspect-square rounded animate-pulse animate-spin animate-ping	animate-bounce`}
       style={{ backgroundImage: `url('${imageUrl}')` }}
     />
   );
