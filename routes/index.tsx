@@ -1,4 +1,5 @@
 import Generator from "../islands/Generator.tsx";
+import Clipboard from "../islands/Clipboard.tsx";
 
 export default function Home() {
   const sessionId = "123-123-123";
@@ -19,6 +20,7 @@ export default function Home() {
           An amazing internet experience, create your canvas of stories.
         </p>
         <Generator sessionId={sessionId} />
+        <Clipboard sessionId={sessionId} />
       </div>
     </div>
   );
