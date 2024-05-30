@@ -1,11 +1,8 @@
 import { useState } from "preact/hooks";
 
-interface GeneratorProps {
-  sessionId: string;
-}
-
-export default function Counter({ sessionId }: GeneratorProps) {
+export default function Clipboard() {
   const [_, setCopied] = useState(false);
+  const sessionId = crypto.randomUUID().slice(0, 17);
 
   const copyToClipboard = async () => {
     try {
@@ -20,7 +17,7 @@ export default function Counter({ sessionId }: GeneratorProps) {
   return (
     <div class="w-full max-w-sm">
       <div class="flex items-center">
-        <button class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-mauve dark:bg-mocha-mauve border-2 hover:bg-latte-lavender dark:hover:bg-mocha-lavender rounded-s border-latte-mauve dark:border-mocha-mauve hover:border-latte-lavender dark:hover:border-mocha-lavender focus:ring-4 focus:outline-none focus:ring-latte-blue dark:focus:ring-mocha-blue">
+        <button class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-red dark:bg-mocha-red border-2 hover:bg-latte-maroon dark:hover:bg-mocha-maroon rounded-s border-latte-red dark:border-mocha-red hover:border-latte-maroon dark:hover:border-mocha-maroon focus:outline-none">
           Generate
         </button>
         <div class="relative w-full">
@@ -28,7 +25,7 @@ export default function Counter({ sessionId }: GeneratorProps) {
             id="url-shortener"
             type="text"
             aria-describedby="helper-text-explanation"
-            class="bg-latte-surface0 dark:bg-mocha-surface0 border border-e-0 border-latte-crust dark:border-mocha-crust text-latte-subtext0 dark:text-mocha-subtext0 text-sm border-s-0 focus:ring-latte-blue focus:border-latte-blue block w-full p-2.5 dark:focus:ring-mocha-blue dark:focus:border-mocha-blue"
+            class="bg-latte-surface0 dark:bg-mocha-surface0 border border-e-0 border-latte-overlay0 dark:border-mocha-overlay0 text-latte-subtext0 dark:text-mocha-subtext0 text-sm border-s-0 block w-full p-2.5"
             value={sessionId}
             readonly
             disabled
@@ -37,7 +34,7 @@ export default function Counter({ sessionId }: GeneratorProps) {
         <button
           data-tooltip-target="tooltip-url-shortener"
           data-copy-to-clipboard-target="url-shortener"
-          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-surface0 dark:bg-mocha-surface0 border border-latte-crust dark:border-mocha-crust rounded-e hover:bg-latte-surface1 dark:hover:bg-mocha-surface1 focus:ring-4 focus:outline-none focus:ring-latte-mantle dark:focus:ring-mocha-mantle"
+          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-latte-text dark:text-mocha-text bg-latte-surface0 dark:bg-mocha-surface0 border border-latte-overlay0 dark:border-mocha-overlay0 rounded-e hover:bg-latte-surface1 dark:hover:bg-mocha-surface1 focus:outline-none"
           type="button"
           onClick={copyToClipboard}
         >
