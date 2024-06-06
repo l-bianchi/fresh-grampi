@@ -28,8 +28,8 @@ jobs:
           echo "supabase url variable : $SUPABASE_URL"
           echo "supabase anon public variable : $SUPABASE_ANON_PUBLIC"
         env:
-          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
-          SUPABASE_ANON_PUBLIC: ${{ vars.SUPABASE_ANON_PUBLIC }}
+          SUPABASE_URL: ${{ env.SUPABASE_URL }}
+          SUPABASE_ANON_PUBLIC: ${{ env.SUPABASE_ANON_PUBLIC }}
 
       - name: Build step
         run: "deno task build"
