@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import { JSXInternal } from "https://esm.sh/v128/preact@10.19.6/src/jsx.js";
 import { Button } from "./Button.tsx";
 
 interface PromptProps {
@@ -7,6 +8,12 @@ interface PromptProps {
 
 export function Prompt({ sessionId }: PromptProps) {
   const [text, setText] = useState("");
+
+  const handleChange = (
+    { target }: JSXInternal.GenericEventHandler<HTMLInputElement>,
+  ) => {
+    setText(target.value);
+  };
 
   const handleSubmit = async () => {
     try {
@@ -37,6 +44,7 @@ export function Prompt({ sessionId }: PromptProps) {
         class="w-full p-4 text-sm font-medium text-mocha-text bg-transparent focus:outline-none"
         placeholder="..."
         value={text}
+        onChange={handleChange}
       />
       <Button onClick={handleSubmit}>
         <svg
