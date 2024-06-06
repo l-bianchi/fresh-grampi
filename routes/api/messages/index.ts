@@ -18,7 +18,7 @@ export const handler: Handlers = {
         return new Response(error.message);
       }
 
-      return new Response(JSON.stringify("ciao"));
+      return new Response(JSON.stringify("ok"));
     }
 
     return new Response("Error connecting to supabase!");

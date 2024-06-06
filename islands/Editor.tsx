@@ -1,7 +1,11 @@
 import { state } from "../stores/editorStore.ts";
 import { Prompt } from "../components/Prompt.tsx";
 
-export default function Editor() {
+interface EditorProps {
+  sessionId: string;
+}
+
+export default function Editor({ sessionId }: EditorProps) {
   const { imageUrl } = state();
 
   return (
@@ -14,7 +18,7 @@ export default function Editor() {
         />
       </div>
       <div class="bg-mocha-base rounded shadow-xl p-4">
-        <Prompt />
+        <Prompt sessionId={sessionId} />
       </div>
     </div>
   );

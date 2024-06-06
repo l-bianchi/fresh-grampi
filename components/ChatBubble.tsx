@@ -1,4 +1,7 @@
-export function ChatBubble() {
+interface ChatBubbleProps {
+  message: string;
+}
+export function ChatBubble({ message }: ChatBubbleProps) {
   return (
     <div class="flex flex-col w-full leading-relaxed p-4 border-mocha-lavender bg-mocha-surface0 rounded shadow">
       <div class="flex justify-between">
@@ -17,8 +20,7 @@ export function ChatBubble() {
         />
       </div>
       <p class="text-sm font-normal py-2.5 text-mocha-text">
-        That's awesome. I think our users will really appreciate the
-        improvements.
+        {message}
       </p>
     </div>
   );

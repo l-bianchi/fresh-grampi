@@ -7,7 +7,7 @@ export default function Room({ params }: PageProps) {
     <div class="grow p-4 overflow-hidden">
       <div class="flex h-full gap-2">
         <div class="w-3/4 h-full">
-          <Editor />
+          <Editor sessionId={params.sessionId} />
         </div>
         <div class="w-1/4 h-full bg-mocha-base rounded shadow-xl overflow-hidden">
           <Conversations sessionId={params.sessionId} />
