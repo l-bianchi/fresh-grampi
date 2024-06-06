@@ -4,7 +4,6 @@
 .env.test.local
 .env.production.local
 .env.local
-.hugging_face_key
 
 # Fresh build directory
 _fresh/

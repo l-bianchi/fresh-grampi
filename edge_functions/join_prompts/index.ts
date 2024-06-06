@@ -1,13 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 import { HfInference } from '@huggingface/inference';
-import { readFileSync } from 'fs';
 
 // Define the Supabase URL and anonymous key
-const supabaseUrl = 'https://your-supabase-url.supabase.co';
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+const supabaseUrl = Deno.env.get("SUPABASE_URL");
+const supabaseKey = Deno.env.get("SUPABASE_KEY");
 
 // Read the HuggingFace API key from a file and trim any extraneous whitespace
-const huggingFaceApiKey = readFileSync('.hugging_face_key', 'utf-8').trim();
+const huggingFaceApiKey = Deno.env.get("HUGGINGFACE_KEY");
 
 // Create a Supabase client using the provided URL and key
 const supabase = createClient(supabaseUrl, supabaseKey);
