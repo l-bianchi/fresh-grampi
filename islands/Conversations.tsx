@@ -35,7 +35,7 @@ export default function Conversations({ sessionId }: ConversationsProps) {
         </p>
       </div>
       <div class="flex flex-col h-full p-4 gap-2 items-center overflow-y-auto">
-        {messages.map((message) => <ChatBubble message={message} />)}
+        {messages.map(({ text }) => <ChatBubble message={text} />)}
       </div>
     </div>
   );
