@@ -23,16 +23,11 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Use variables
-        run: |
-          echo "supabase url variable : $SUPABASE_URL"
-          echo "supabase anon public variable : $SUPABASE_ANON_PUBLIC"
-        env:
-          SUPABASE_URL: ${{ env.SUPABASE_URL }}
-          SUPABASE_ANON_PUBLIC: ${{ env.SUPABASE_ANON_PUBLIC }}
-
       - name: Build step
         run: "deno task build"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_PUBLIC: ${{ secrets.SUPABASE_ANON_PUBLIC }}
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
