@@ -2,11 +2,11 @@ import { useState } from "preact/hooks";
 import { Button } from "../components/Button.tsx";
 
 export default function Clipboard() {
-  const [sessionId, setSessionId] = useState(crypto.randomUUID().slice(0, 17));
+  const [sessionId, setSessionId] = useState(crypto.randomUUID());
   const [copied, setCopied] = useState(false);
 
   const generateSessionId = () => {
-    setSessionId(crypto.randomUUID().slice(0, 17));
+    setSessionId(crypto.randomUUID());
   };
 
   const copyToClipboard = async () => {
