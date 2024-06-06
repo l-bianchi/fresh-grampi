@@ -1,6 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.43.4";
 import { FreshContext } from "$fresh/server.ts";
-import { load } from "https://deno.land/std@0.224.0/dotenv/mod.ts";
+//import { load } from "https://deno.land/std@0.224.0/dotenv/mod.ts";
+import { load } from "$std/dotenv/mod.ts";
 
 export const handler = async (
   _req: Request,
