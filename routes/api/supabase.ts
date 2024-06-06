@@ -7,6 +7,7 @@ export const handler = async (
   _ctx: FreshContext,
 ): Promise<Response> => {
   const env = await load();
+  console.log(env);
 
   const supabase = createClient(
     env["SUPABASE_URL"],
