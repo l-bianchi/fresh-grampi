@@ -12,7 +12,7 @@ export default function Conversations({ sessionId }: ConversationsProps) {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch("/api/messages");
+        const response = await fetch(`/api/messages?sessionId=${sessionId}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

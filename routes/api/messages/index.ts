@@ -29,10 +29,13 @@ export const handler: Handlers = {
 
     if (supabaseUrl && supabaseAnonPublic) {
       const supabase = createClient(supabaseUrl, supabaseAnonPublic);
+      const url = new URL(_req.url);
+      const params = new URLSearchParams(url.search);
 
       const { data } = await supabase
         .from("messages")
-        .select();
+        .select()
+        .eq("session_id", params.get("sessionId"));
       return new Response(JSON.stringify(data));
     }
 
