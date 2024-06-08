@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import { addMessage } from "../stores/messages.ts";
 import { Button } from "./Button.tsx";
 
 interface PromptProps {
@@ -8,25 +9,25 @@ interface PromptProps {
 export function Prompt({ sessionId }: PromptProps) {
   const [text, setText] = useState("");
 
-  const handleChange = (e) => {
-    setText(e.target.value);
+  const handleChange = (
+    event: preact.JSX.TargetedEvent<HTMLInputElement, Event>,
+  ) => {
+    setText(event.currentTarget.value);
   };
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(
-        "https://fresh-grampi.deno.dev/api/messages",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text, sessionId }),
+      const response = await fetch("/api/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({ text, sessionId }),
+      });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      addMessage({ text, sessionId });
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +42,7 @@ export function Prompt({ sessionId }: PromptProps) {
         class="w-full p-4 text-sm font-medium text-mocha-text bg-transparent focus:outline-none"
         placeholder="..."
         value={text}
-        onChange={handleChange}
+        onInput={handleChange}
       />
       <Button onClick={handleSubmit}>
         <svg

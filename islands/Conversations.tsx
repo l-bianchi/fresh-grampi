@@ -1,4 +1,5 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect } from "preact/hooks";
+import { setMessages, state } from "../stores/messages.ts";
 import { ChatBubble } from "../components/ChatBubble.tsx";
 
 interface ConversationsProps {
@@ -6,14 +7,12 @@ interface ConversationsProps {
 }
 
 export default function Conversations({ sessionId }: ConversationsProps) {
-  const [messages, setMessages] = useState([]);
+  const { messages } = state();
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(
-          "https://fresh-grampi.deno.dev/api/messages",
-        );
+        const response = await fetch("/api/messages");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
