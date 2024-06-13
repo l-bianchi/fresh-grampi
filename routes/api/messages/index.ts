@@ -24,7 +24,7 @@ export const handler: Handlers = {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization:": `Bearer ${supabaseAnonPublic}`,
+            "Authorization": `Bearer ${supabaseAnonPublic}`,
           },
           body: JSON.stringify({ sessionId: body.sessionId }),
         },
@@ -38,7 +38,7 @@ export const handler: Handlers = {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization:": `Bearer ${supabaseAnonPublic}`,
+            "Authorization": `Bearer ${supabaseAnonPublic}`,
           },
           body: JSON.stringify({
             prompt: generatedPrompt,
