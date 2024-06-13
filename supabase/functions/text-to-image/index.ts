@@ -12,6 +12,7 @@ serve(async (req) => {
     // Supabase API SERVICE ROLE KEY - env var exported by default when deployed.
     Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
   );
+  console.log(`Generating with prompt: ${prompt}`);
 
   const image = await hf.textToImage(
     {
@@ -23,13 +24,14 @@ serve(async (req) => {
       use_cache: false,
     },
   );
+  console.log("Image generated successfully");
 
   // Upload the image to Supabase storage
   await supabase.storage
     .from("images")
-    .upload(`${sessionId}/${Date.now()}.png`, image, {
+    .upload(`${sessionId}/image.png`, image, {
       cacheControl: "3600",
-      upsert: false,
+      upsert: true,
     });
 
   return new Response("ok");

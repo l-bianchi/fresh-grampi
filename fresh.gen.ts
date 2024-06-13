@@ -7,6 +7,8 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_messages_index from "./routes/api/messages/index.ts";
+import * as $api_sessions_id_ from "./routes/api/sessions/[id].ts";
+import * as $api_sessions_index from "./routes/api/sessions/index.ts";
 import * as $index from "./routes/index.tsx";
 import * as $Clipboard from "./islands/Clipboard.tsx";
 import * as $Conversations from "./islands/Conversations.tsx";
@@ -20,6 +22,8 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/messages/index.ts": $api_messages_index,
+    "./routes/api/sessions/[id].ts": $api_sessions_id_,
+    "./routes/api/sessions/index.ts": $api_sessions_index,
     "./routes/index.tsx": $index,
   },
   islands: {

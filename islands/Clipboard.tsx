@@ -21,6 +21,21 @@ export default function Clipboard() {
     }
   };
 
+  const joinSession = async () => {
+    const response = await fetch("/api/sessions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: sessionId }),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    window.location.href = `/${sessionId}`;
+  };
+
   return (
     <div class="flex w-full max-w-fit gap-8">
       <div class="flex items-center">
@@ -78,7 +93,7 @@ export default function Clipboard() {
           </span>
         </button>
       </div>
-      <Button onClick={() => (window.location.href = `/${sessionId}`)}>
+      <Button onClick={joinSession}>
         Join
       </Button>
     </div>

@@ -18,6 +18,33 @@ export const handler: Handlers = {
         return new Response(error.message);
       }
 
+      const response = await fetch(
+        `${supabaseUrl}/functions/v1/${"merge-prompts"}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ sessionId: body.sessionId }),
+        },
+      );
+
+      const generatedPrompt = await response.text();
+
+      await fetch(
+        `${supabaseUrl}/functions/v1/${"text-to-image"}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: generatedPrompt,
+            sessionId: body.sessionId,
+          }),
+        },
+      );
+
       return new Response(JSON.stringify("ok"));
     }
 
