@@ -33,8 +33,10 @@ export default function Conversations({ sessionId }: ConversationsProps) {
           Room: <span class="text-mocha-mauve underline">{sessionId}</span>
         </p>
       </div>
-      <div class="flex flex-col h-full p-4 gap-2 items-center overflow-y-auto">
-        {messages.map(({ text }) => <ChatBubble message={text} />)}
+      <div class="flex flex-col-reverse h-full p-4 gap-2 items-center overflow-y-auto">
+        {messages.map(({ text, created_at }) => (
+          <ChatBubble text={text} created_at={created_at} />
+        ))}
       </div>
     </div>
   );
