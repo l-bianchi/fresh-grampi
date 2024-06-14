@@ -31,7 +31,7 @@ serve(async (req) => {
   console.log(oldPrompt);
 
   const prompt =
-    "Generate a 30-word descriptive and creative prompt that can be used to create an image based on the given messages. The first message is the most important.";
+    "Generate a 30-word descriptive prompt that can be used to create an image based on the given messages. Use only subject and adjectives separated by commas in the generated prompt.";
   const promtpMessages = oldPrompt !== ""
     ? [lastMessage, oldPrompt].join(", ")
     : lastMessage;
@@ -50,7 +50,7 @@ serve(async (req) => {
     parameters: {
       num_return_sequences: 1,
       // temperature: 0.1,
-      max_new_tokens: 1024,
+      // max_new_tokens: 1024,
       return_full_text: false,
     },
   }, {
