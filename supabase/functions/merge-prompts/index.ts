@@ -31,13 +31,13 @@ serve(async (req) => {
   console.log(oldPrompt);
 
   const prompt =
-    "Generate a 30-word descriptive prompt that can be used to create an image based on the given messages. Use only subject and adjectives separated by commas in the generated prompt.";
+    "Generate a very short prompt that can be used to create an image based on the given messages. Use only the subject and its adjectives separated by commas in the generated prompt.";
   const promtpMessages = oldPrompt !== ""
     ? [lastMessage, oldPrompt].join(", ")
     : lastMessage;
 
   // Join initial prompt with the array of messages into a single string
-  const joinedMessage = prompt + "\nMessages: " + promtpMessages + "\nPrompt:";
+  const joinedMessage = prompt + "\nMessages: " + promtpMessages + "\nPrompt: ";
   console.log(joinedMessage);
 
   // Define the model to be used for text generation
@@ -57,7 +57,8 @@ serve(async (req) => {
     use_cache: false,
   });
 
-  const generatedText = hfResponse.generated_text;
+  const generatedText = hfResponse.generated_text.split("\n")[0].trim();
+  console.log(generatedText);
 
   // Insert the transformed text into the 'image_prompts' table in Supabase
   const { error } = await supabase
