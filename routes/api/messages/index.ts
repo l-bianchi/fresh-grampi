@@ -64,7 +64,9 @@ export const handler: Handlers = {
       const { data } = await supabase
         .from("messages")
         .select()
-        .eq("session_id", params.get("sessionId"));
+        .eq("session_id", params.get("sessionId"))
+        .order("id", { ascending: false });
+
       return new Response(JSON.stringify(data));
     }
 

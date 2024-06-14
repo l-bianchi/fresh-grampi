@@ -27,7 +27,7 @@ export function Prompt({ sessionId }: PromptProps) {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      addMessage({ text, sessionId });
+      addMessage({ text, created_at: new Date().toISOString(), sessionId });
     } catch (error) {
       console.log(error);
     }

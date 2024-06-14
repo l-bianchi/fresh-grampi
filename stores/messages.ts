@@ -20,7 +20,7 @@ export const addMessage = (
   message: { text: string; created_at: string; sessionId: string },
 ) =>
   store.set((state) => ({
-    messages: [...state.messages, message],
+    messages: [message, ...state.messages],
   }));
 
 export const state = () => useStore(store);
