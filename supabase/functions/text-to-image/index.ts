@@ -17,7 +17,7 @@ serve(async (req) => {
   const image = await hf.textToImage(
     {
       inputs: prompt,
-      model: "stabilityai/stable-diffusion-2",
+      model: "stabilityai/sdxl-turbo",
       // model: "CompVis/stable-diffusion-v1-4",
     },
     {
