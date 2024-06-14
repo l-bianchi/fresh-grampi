@@ -31,11 +31,7 @@ serve(async (req) => {
   console.log(oldPrompt);
 
   const prompt =
-    `Generate a 50-word descriptive and creative prompt that can be used to create an image based on the given messages. The first message is the most important.
-Instructions:
-Read the Messages: Carefully read the provided messages to understand the themes, subjects, and details mentioned.
-Extract Key Elements: Identify the key elements, emotions, and scenes described in the messages. Look for recurring themes, important details, and specific descriptions.
-Combine the Elements: Synthesize the key elements into a cohesive and vivid description that paints a clear picture in the reader's mind.`;
+    "Generate a 30-word descriptive and creative prompt that can be used to create an image based on the given messages. The first message is the most important.";
 
   // Join initial prompt with the array of messages into a single string
   const joinedMessage = prompt + "\nMessages: " +
@@ -51,23 +47,20 @@ Combine the Elements: Synthesize the key elements into a cohesive and vivid desc
     inputs: joinedMessage,
     parameters: {
       num_return_sequences: 1,
-      temperature: 0.1,
-      max_new_tokens: 250,
+      // temperature: 0.1,
+      max_new_tokens: 1024,
+      return_full_text: false,
     },
   }, {
     use_cache: false,
   });
 
-  const splitText = hfResponse.generated_text.split("Prompt: ");
-
-  // Get the generated text from the HuggingFace response
-  const transformedText = splitText[splitText.length - 1];
-  console.log(transformedText);
+  const generatedText = hfResponse.generated_text;
 
   // Insert the transformed text into the 'image_prompts' table in Supabase
   const { error } = await supabase
     .from("sessions")
-    .update({ prompt: transformedText })
+    .update({ prompt: generatedText })
     .eq("id", sessionId);
 
   // If there's an error, log it and throw an error
@@ -76,5 +69,5 @@ Combine the Elements: Synthesize the key elements into a cohesive and vivid desc
     throw new Error("Error inserting into Supabase");
   }
 
-  return new Response(transformedText);
+  return new Response(generatedText);
 });
