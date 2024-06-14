@@ -11,7 +11,7 @@ export function ChatBubble({ text, created_at }: ChatBubbleProps) {
             Anonymous
           </span>
           <span class="text-sm font-normal text-mocha-subtext0">
-            {created_at.getTime()}
+            {created_at}
           </span>
         </div>
         <img
