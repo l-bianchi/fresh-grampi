@@ -9,7 +9,7 @@ export default function Editor(
   { sessionId, supabaseUrl }: EditorProps,
 ) {
   const imageUrl =
-    `${supabaseUrl}/storage/v1/object/public/images/${sessionId}/image.png`;
+    `${supabaseUrl}/storage/v1/object/public/images/${sessionId}/image.png?time=${Date.now()}`;
 
   return (
     <div class="flex flex-col h-full gap-2">
