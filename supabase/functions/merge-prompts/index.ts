@@ -30,21 +30,15 @@ serve(async (req) => {
   const oldPrompt = promptData ? promptData[0].prompt : "";
   console.log(oldPrompt);
 
-  const prompt = `
-Generate a 50-word descriptive and creative prompt that can be used to create an image based on the given messages.
-
+  const prompt =
+    `Generate a 50-word descriptive and creative prompt that can be used to create an image based on the given messages. The first message is the most important.
 Instructions:
 Read the Messages: Carefully read the provided messages to understand the themes, subjects, and details mentioned.
-
 Extract Key Elements: Identify the key elements, emotions, and scenes described in the messages. Look for recurring themes, important details, and specific descriptions.
-
-Combine the Elements: Synthesize the key elements into a cohesive and vivid description that paints a clear picture in the reader's mind.
-
-Add Creative Details: Enhance the prompt with imaginative and artistic details to make the image concept more compelling and visually rich.
-`;
+Combine the Elements: Synthesize the key elements into a cohesive and vivid description that paints a clear picture in the reader's mind.`;
 
   // Join initial prompt with the array of messages into a single string
-  const joinedMessage = prompt + "Messages: " +
+  const joinedMessage = prompt + "\nMessages: " +
     [lastMessage, oldPrompt].join(", ") + "\nPrompt:";
   console.log(joinedMessage);
 
@@ -58,7 +52,7 @@ Add Creative Details: Enhance the prompt with imaginative and artistic details t
     parameters: {
       num_return_sequences: 1,
       temperature: 0.1,
-      max_new_tokens: 1024,
+      max_new_tokens: 250,
     },
   }, {
     use_cache: false,
