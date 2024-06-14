@@ -8,13 +8,13 @@ export default function Room({ params }: PageProps) {
   return (
     <div class="grow p-4 overflow-hidden">
       <div class="flex h-full gap-2">
-        <div class="w-3/4 h-full">
+        <div class="w-full md:w-3/4 h-full">
           <Editor
             sessionId={params.sessionId}
             supabaseUrl={supabaseUrl}
           />
         </div>
-        <div class="w-1/4 h-full bg-mocha-base rounded shadow-xl overflow-hidden">
+        <div class="w-1/4 h-full bg-mocha-base rounded shadow-xl overflow-hidden hidden md:block">
           <Conversations sessionId={params.sessionId} />
         </div>
       </div>
