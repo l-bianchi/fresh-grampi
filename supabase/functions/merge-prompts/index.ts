@@ -32,10 +32,12 @@ serve(async (req) => {
 
   const prompt =
     "Generate a 30-word descriptive and creative prompt that can be used to create an image based on the given messages. The first message is the most important.";
+  const promtpMessages = oldPrompt !== ""
+    ? [lastMessage, oldPrompt].join(", ")
+    : lastMessage;
 
   // Join initial prompt with the array of messages into a single string
-  const joinedMessage = prompt + "\nMessages: " +
-    [lastMessage, oldPrompt].join(", ") + "\nPrompt:";
+  const joinedMessage = prompt + "\nMessages: " + promtpMessages;
   console.log(joinedMessage);
 
   // Define the model to be used for text generation
