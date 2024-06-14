@@ -12,7 +12,7 @@ export function Prompt({ sessionId }: PromptProps) {
   const handleChange = (
     event: preact.JSX.TargetedEvent<HTMLInputElement, Event>,
   ) => {
-    setText(event.currentTarget.value);
+    setText(event.currentTarget.value.trim());
   };
 
   const handleSubmit = async () => {
@@ -44,7 +44,7 @@ export function Prompt({ sessionId }: PromptProps) {
         value={text}
         onInput={handleChange}
       />
-      <Button onClick={handleSubmit}>
+      <Button disabled={text === ""} onClick={handleSubmit}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
