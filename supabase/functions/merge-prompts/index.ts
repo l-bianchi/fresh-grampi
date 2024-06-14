@@ -37,7 +37,7 @@ serve(async (req) => {
     : lastMessage;
 
   // Join initial prompt with the array of messages into a single string
-  const joinedMessage = prompt + "\nMessages: " + promtpMessages;
+  const joinedMessage = prompt + "\nMessages: " + promtpMessages + "\nPrompt:";
   console.log(joinedMessage);
 
   // Define the model to be used for text generation
